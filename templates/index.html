@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forex ML Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+
+</head>
+
+<body>
+
+    <div class="overlay"></div>
+
+    <div class="container">
+
+        <div class="glass-card">
+
+            <div class="left-section">
+
+                <h1>FOREX ML PREDICTION</h1>
+
+                <p class="subtitle">
+                    AI Powered EUR/USD Market Forecast
+                </p>
+
+                <div class="market-status">
+                    <span class="live-dot"></span>
+                    LIVE MARKET ANALYSIS
+                </div>
+
+            </div>
+
+            <div class="right-section">
+
+                <form action="/predict" method="POST" id="predictionForm">
+
+                    <div class="input-group">
+
+                        <label>BID OPENING</label>
+
+                        <input type="number"
+                            step="any"
+                            name="bid_open"
+                            placeholder="Enter Bid Opening"
+                            required>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>BID HIGH</label>
+
+                        <input type="number"
+                            step="any"
+                            name="bid_high"
+                            placeholder="Enter Bid High"
+                            required>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label>BID LOW</label>
+
+                        <input type="number"
+                            step="any"
+                            name="bid_low"
+                            placeholder="Enter Bid Low"
+                            required>
+
+                    </div>
+
+                    <button type="submit" class="predict-btn">
+
+                        <span>Predict Market</span>
+
+                    </button>
+
+                </form>
+
+                <div class="prediction-box">
+
+                    <h2>PREDICTION RESULT</h2>
+
+                    <div class="prediction-output">
+
+                        {{ prediction_text }}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
